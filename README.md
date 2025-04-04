@@ -1,4 +1,4 @@
-POST http://localhost:5000/register
+POST http://${url}:5000/register
 Content-Type: application/json
 
 {

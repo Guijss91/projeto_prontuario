@@ -1,34 +1,34 @@
+version: '3.8'
 
 services:
-  db:
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_DB: prontuario_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - db_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
   backend:
     build:
       context: .
       dockerfile: Dockerfile
-    depends_on:
-      - db
+    container_name: prontuario-backend
+    restart: always
     ports:
       - "5000:5000"
     environment:
-      FLASK_APP: app.py
-
-  frontend:
-    image: nginx:alpine
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/prontuario
+    depends_on:
+      - db
     volumes:
-      - ./public:/usr/share/nginx/html:ro
+      - ./backend:/app
+
+  db:
+    image: postgres:15
+    container_name: prontuario-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prontuario
+    volumes:
+      - db_data:/var/lib/postgresql/data
     ports:
-      - "8080:80"
+      - "5432:5432"
 
 volumes:
   db_data:

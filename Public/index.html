@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prontuário Digital - Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section
+      class="vh-100 d-flex align-items-center justify-content-center bg-light"
+    >
+      <div class="container text-center">
+        <h1 class="mb-4">Bem-vindo ao Prontuário Digital</h1>
+        <p class="mb-5">
+          Armazene e acesse seus exames médicos de forma segura e inteligente
+          com IA.
+        </p>
+
+        <div class="card p-4 shadow-lg mx-auto" style="max-width: 400px">
+          <h4 class="mb-3">Login</h4>
+          <form id="loginForm">
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Seu e-mail"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Senha"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

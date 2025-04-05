@@ -5,7 +5,7 @@ from models import db, bcrypt, User
 app = Flask(__name__)
 CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:9a8c0d61e4636ace8466@easypanel.ljit.com.br:5532/prontuario_db?sslmode=disable'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@prontuario-db:5432/prontuario?sslmode=disable'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)

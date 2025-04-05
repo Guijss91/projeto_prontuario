@@ -1,17 +1,13 @@
-# Usa a imagem base do Python
-FROM python:3.11
+FROM python:3.10-slim
 
-# Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia o conteúdo do backend para o container
-COPY . .
+COPY backend/requirements.txt .
 
-# Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expõe a porta usada pela aplicação
-EXPOSE 5000
+COPY backend/ ./backend
 
-# Comando para iniciar o app
+WORKDIR /app/backend
+
 CMD ["python", "app.py"]
